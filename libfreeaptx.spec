@@ -1,32 +1,31 @@
 %define _empty_manifest_terminate_build 0
 
-%define libname %mklibname openaptx %{major}
-%define develname %mklibname openaptx -d
-%define oname openaptx
+%define libname %mklibname freeaptx %{major}
+%define develname %mklibname freeaptx -d
+%define oname freeaptx
 
 %define major 0
 
-Name: libopenaptx
-Epoch:   2
-Version: 0.2.0
+Name: libfreeaptx
+Version: 0.1.1
 Release: 1
-Summary: Open Source implementation of aptX codec
+Summary: Free (open source) implementation of Audio Processing Technology codec (aptX) forked from libopenaptx 0.2.0.
 Group: System/Libraries
 License: LGPL-2.1-or-later
-Url: https://github.com/pali/libopenaptx
-Source0: https://github.com/pali/libopenaptx/releases/download/%{version}/%{name}-%{version}.tar.gz
+Url: https://github.com/iamthehorker/libfreeaptx
+Source0: https://github.com/iamthehorker/libfreeaptx/archive/refs/tags/%{version}/%{name}-%{version}.tar.gz
 
 %package -n %{oname}
 Summary:       Library for Open Source implementation of aptX codec
 Group:         System/Libraries
 
 %description -n %{oname}
-This is Open Source implementation library of Audio Processing Technology codec
+This package is a fork of libopenaptx. This library is Open Source implementation library of Audio Processing Technology codec
 (aptX) derived from ffmpeg 4.0 project and licensed under LGPLv2.1+. This
 codec is mainly used in Bluetooth A2DP profile.
 
 %description
-This is Open Source implementation of Audio Processing Technology codec
+this package is a fork of libopenaptx. This is Open Source implementation of Audio Processing Technology codec
 (aptX) derived from ffmpeg 4.0 project and licensed under LGPLv2.1+. This
 codec is mainly used in Bluetooth A2DP profile.
 
@@ -35,14 +34,14 @@ Summary:       Library for Open Source implementation of aptX codec
 Group:         System/Libraries
 
 %description -n %{libname}
-This is Open Source implementation library of Audio Processing Technology codec
+This package is a fork of libopenaptx. This is Open Source implementation library of Audio Processing Technology codec
 (aptX) derived from ffmpeg 4.0 project and licensed under LGPLv2.1+. This
 codec is mainly used in Bluetooth A2DP profile.
 
 %package -n %{develname}
 Summary: aptX header files
 Group: Development/C
-Requires:	%{libname} = %{epoch}:%{version}-%{release}
+Requires:	%{libname} = %{version}-%{release}
 
 %description -n %{develname}
 This package provides files needed to develop programms which use %name.
@@ -63,17 +62,17 @@ export CXX=g++
 %make_install PREFIX=%_prefix LIBDIR=%_lib
 
 %files -n %{oname}
-%{_bindir}/openaptxdec
-%{_bindir}/openaptxenc
+%{_bindir}/freeaptxdec
+%{_bindir}/freeaptxenc
 
 %files -n %{libname}
-%{_libdir}/libopenaptx.so.%{major}
-%{_libdir}/libopenaptx.so.%{version}
+%{_libdir}/libfreeaptx.so.%{major}
+%{_libdir}/libfreeaptx.so.%{version}
 %doc README
 
 %files -n %{develname}
-%{_includedir}/openaptx.h
-%{_libdir}/libopenaptx.so
-%{_libdir}/pkgconfig/libopenaptx.pc
+%{_includedir}/freeaptx.h
+%{_libdir}/libfreeaptx.so
+%{_libdir}/pkgconfig/libfreeaptx.pc
 
 %exclude %_libdir/%name.a
