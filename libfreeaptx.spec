@@ -8,7 +8,7 @@
 
 Name: libfreeaptx
 Version: 0.1.1
-Release: 1
+Release: 2
 Summary: Free (open source) implementation of Audio Processing Technology codec (aptX) forked from libopenaptx 0.2.0.
 Group: System/Libraries
 License: LGPL-2.1-or-later
